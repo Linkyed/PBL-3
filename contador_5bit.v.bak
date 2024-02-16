@@ -1,0 +1,50 @@
+module contador_5bit (clk, rstn, OUT);
+	input clk;
+	output [4:0] OUT;
+	
+	wire T0, T1, T2, T3;
+	
+	d_ff d0 ( .d(~T0), 
+		.rstn(rstn),
+		.clk(clk),
+		.q(T0)
+	);
+	
+	
+	d_ff d1 ( .d(~T1), 
+		.rstn(rstn),
+		.clk(T0),
+		.q(T1)
+	);
+	
+	
+	d_ff d2 ( .d(~T2), 
+		.rstn(rstn),
+		.clk(T1),
+		.q(T2)
+	);
+	
+	
+	d_ff d3 ( .d(~T3), 
+		.rstn(rstn),
+		.clk(T2),
+		.q(T3)
+	);
+	
+	d_ff d3 ( .d(~T4), 
+		.rstn(rstn),
+		.clk(T3),
+		.q(T4)
+	);
+	
+	and reset_cond (rstn, T0, T1, ~T2, ~T3, T4);
+	// possivel inversão
+	//and reset_cond (rstn, T0, ~T1, ~T2, T3, T4);
+	
+	assign OUT[0] = T0;
+	assign OUT[1] = T1;
+	assign OUT[2] = T2;
+	assign OUT[3] = T3;
+	assign OUT[4] = T4;
+
+endmodule

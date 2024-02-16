@@ -1,0 +1,5 @@
+module PBL3 (A, B, OUT);
+	input A, B;
+	output OUT;
+	and And0 (OUT, A, B);
+endmodule

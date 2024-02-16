@@ -1,0 +1,57 @@
+module decod_numeros_7seg_0a9 (
+  input A, B, C, D,
+  output reg sA, sB, sC, sD, sE, sF, sG
+);
+
+  always @*
+    begin
+      // S0 ~A~B~CD + ~AB~C~D
+      sA = ~A & ~B & ~C & D | ~A & B & ~C & ~D;
+
+      // S1 ~AB~CD + ~ABC~D
+      sB = ~A & B & ~C & D | ~A & B & C & ~D;
+
+      // S2 ~A~BC~D
+      sC = ~A & ~B & C & ~D;
+
+      // S3 ~AB~C~D + ~ABCD + ~B~CD
+      sD = ~A & B & ~C & D | ~A & B & C & D | ~B & ~C & D;
+
+      // S4 ~B~CD + ~AB~C + ~AD
+      sE = ~B & ~C & D | ~A & B & ~C | ~A & D;
+
+      // S5 ~A~BD + ~A~BC + ~ACD
+      sF = ~A & ~B & D | ~A & ~B & C | ~A & C & D;
+
+      // S6 ~ABCD + ~A~B~C
+      sG = ~A & B & C & D | ~A & ~B & ~C;
+    end
+	
+//	// S0 ~a~b~cd + ~ab~c~d
+//	and And0 (T0, ~A, ~B, ~C, D);
+//	and And1 (T1, ~A, B, ~C, ~D);
+//	or Or0 (OUT[0], T0, T1);
+//	// S1 ~ab~cd + ~abc~d
+//	and And2 (T2, ~A, B, ~C, D);
+//	and And3 (T3, ~A, B, C, ~D);
+//	or Or1 (OUT[1], T2, T3);
+//	// S2 ~a~bc~d
+//	and And4 (OUT[2], ~A, ~B, C, ~D);
+//	// S3	~ab~c~d + ~abcd + ~b~cd
+//	and And5 (T4, ~A, B, C, D);
+//	and And6 (T5, ~B, ~C, D);
+//	or Or2 (OUT[3], T1, T4, T5);
+//	// S4 ~b~cd + ~ab~c + ~ad
+//	and And8 (T6, ~A, B, ~C);
+//	and And9 (T7, ~A, D);
+//	or Or3 (OUT[4], T5, T6, T7);
+//	// S5 ~a~bd + ~a~bc + ~acd
+//	and And11 (T8, ~A, ~B, D);
+//	and And12 (T9, ~A, ~B, C);
+//	and And13 (T10, ~A, C, D);
+//	or Or4 (OUT[5], T8, T9, T10);
+//	// S6 ~abcd + ~a~b~c
+//	and And14 (T11, ~A, ~B, ~C);
+//	or Or5 (OUT[6], T4, T11);
+
+endmodule

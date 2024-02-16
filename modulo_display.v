@@ -1,0 +1,36 @@
+//module modulo_display (CH0, clk, OUT, dig0, dig1, dig2, dig3);
+//	input CH0, clk;
+//	output [6:0]OUT;
+//	output dig0, dig1, dig2, dig3;
+//	
+//	wire [3:0] unidade_gar, dezena_gar;
+//	wire [6:0] SEG_unidade_gar, SEG_dezena_gar, SEG_dezena_rolha, SEG_unidade_rolha;
+//	wire [1:0] sel_7seg;
+//	wire unidade_completa_gar, dig0_inv, dig1_inv, dig2_inv, dig3_inv;
+//	
+//	// CONTADORES DE 4 BITS COM RESET AO CHEGAR NO NUMERO 10(1010) em binario
+//	contador_10dig cont_unidade_gar (CH0, unidade_gar, unidade_completa_gar);
+//	contador_10dig cont_dezena_gar (unidade_completa_gar, dezena_gar);
+//	
+//	// DECODIFICADORES DE ENTRADAS DE 4 BITS PARA SAIDAS DE 7 BITS, USADOS PARA REPRESENTAR OS NUMEROS DE 0 A 9 NO MOSTRADOR DE 7 SEGMENTOS
+//	decod_numeros_7seg decod_unidade_gar (unidade_gar[0], unidade_gar[1], unidade_gar[2], unidade_gar[3], SEG_unidade_gar[0], SEG_unidade_gar[1], 
+//	SEG_unidade_gar[2], SEG_unidade_gar[3], SEG_unidade_gar[4], SEG_unidade_gar[5], SEG_unidade_gar[6]);
+//	
+//	decod_numeros_7seg decod_dezena_gar (dezena_gar[0], dezena_gar[1], dezena_gar[2], dezena_gar[3], SEG_dezena_gar[0], SEG_dezena_gar[1], SEG_dezena_gar[2], 
+//	SEG_dezena_gar[3], SEG_dezena_gar[4], SEG_dezena_gar[5], SEG_dezena_gar[6]);
+//	
+//	// CONTADOR DE 2 BITS
+//	contador_sin_2bit cont_dig_7seg (clk, 0, sel_7seg[0], sel_7seg[1]);
+//	
+//	
+//	// DECODIFICADOR 2 PRA 4 PARA LIGAR OS DIGITOS DO MOSTRADOR DE 7 SEGMENTOS NA ORDEM CORRETA
+//	decod_2_4 decod_dig_7seg (sel_7seg[0], sel_7seg[1], dig0_inv, dig1_inv, dig2_inv, dig3_inv);
+//	assign dig0 = ~dig0_inv;
+//	assign dig1 = ~dig1_inv;
+//	assign dig2 = ~dig2_inv;
+//	assign dig3 = ~dig3_inv;
+//	
+//	// MULTIPLEXADOR 4 PRA 1 PRA EXIBIR AS UNIDADES E DEZENAS DE DUZIAS DE GARRAFAZ PRODUZIDAS NO MOSTRADOR
+//	MUX_4_1 mux_4_1_7seg (SEG_dezena_gar, SEG_unidade_gar, SEG_dezena_rolha, SEG_unidade_rolha, sel_7seg, OUT);
+//	
+//endmodule

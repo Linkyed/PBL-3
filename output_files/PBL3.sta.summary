@@ -1,0 +1,37 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+Slack : -1.755
+TNS   : -12.811
+
+Type  : Setup 'clk'
+Slack : -1.505
+TNS   : -3.002
+
+Type  : Hold 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+Slack : -4.092
+TNS   : -12.260
+
+Type  : Hold 'clk'
+Slack : 1.695
+TNS   : 0.000
+
+Type  : Recovery 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+Slack : -8.126
+TNS   : -16.252
+
+Type  : Removal 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+Slack : 0.828
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

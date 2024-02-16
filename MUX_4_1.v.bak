@@ -1,0 +1,18 @@
+module MUX_4_1 (
+  input [3:0] A,
+  input [3:0] B,
+  input [3:0] C,
+  input [3:0] D,
+  input [1:0] SEL,
+  output reg [3:0] output
+);
+
+  always @*
+    case (SEL)
+      2'b00: output = A;
+      2'b01: output = B;
+      2'b10: output = C;
+      2'b11: output = D;
+    endcase
+
+endmodule
