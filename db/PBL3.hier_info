@@ -1,6 +1,7 @@
 |PBL3
-CH0 => CH0.IN1
-CH1 => CH1.IN2
+CH0 => And1.IN1
+CH1 => CH1.IN4
+CH2 => CH2.IN1
 clk => clk.IN1
 OUT[0] <= MUX_4_1:mux_4_1_7seg.port5
 OUT[1] <= MUX_4_1:mux_4_1_7seg.port5
@@ -13,6 +14,65 @@ dig0 <= decod_2_4:decod_dig_7seg.port2
 dig1 <= decod_2_4:decod_dig_7seg.port3
 dig2 <= decod_2_4:decod_dig_7seg.port4
 dig3 <= decod_2_4:decod_dig_7seg.port5
+teste_uni_gar[0] <= unidade_gar[0].DB_MAX_OUTPUT_PORT_TYPE
+teste_uni_gar[1] <= unidade_gar[1].DB_MAX_OUTPUT_PORT_TYPE
+teste_uni_gar[2] <= unidade_gar[2].DB_MAX_OUTPUT_PORT_TYPE
+teste_uni_gar[3] <= unidade_gar[3].DB_MAX_OUTPUT_PORT_TYPE
+teste_deze_gar[0] <= dezena_gar[0].DB_MAX_OUTPUT_PORT_TYPE
+teste_deze_gar[1] <= dezena_gar[1].DB_MAX_OUTPUT_PORT_TYPE
+teste_deze_gar[2] <= dezena_gar[2].DB_MAX_OUTPUT_PORT_TYPE
+teste_deze_gar[3] <= dezena_gar[3].DB_MAX_OUTPUT_PORT_TYPE
+teste_uni_rol[0] <= unidade_r[0].DB_MAX_OUTPUT_PORT_TYPE
+teste_uni_rol[1] <= unidade_r[1].DB_MAX_OUTPUT_PORT_TYPE
+teste_uni_rol[2] <= unidade_r[2].DB_MAX_OUTPUT_PORT_TYPE
+teste_uni_rol[3] <= unidade_r[3].DB_MAX_OUTPUT_PORT_TYPE
+teste_deze_rol[0] <= dezena_r[0].DB_MAX_OUTPUT_PORT_TYPE
+teste_deze_rol[1] <= dezena_r[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PBL3|div_clock:divisor
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+clk => count[4]~reg0.CLK
+clk => count[5]~reg0.CLK
+clk => count[6]~reg0.CLK
+clk => count[7]~reg0.CLK
+clk => count[8]~reg0.CLK
+clk => count[9]~reg0.CLK
+clk => count[10]~reg0.CLK
+clk => count[11]~reg0.CLK
+clk => count[12]~reg0.CLK
+clk => count[13]~reg0.CLK
+reset => count[0]~reg0.ACLR
+reset => count[1]~reg0.ACLR
+reset => count[2]~reg0.ACLR
+reset => count[3]~reg0.ACLR
+reset => count[4]~reg0.ACLR
+reset => count[5]~reg0.ACLR
+reset => count[6]~reg0.ACLR
+reset => count[7]~reg0.ACLR
+reset => count[8]~reg0.ACLR
+reset => count[9]~reg0.ACLR
+reset => count[10]~reg0.ACLR
+reset => count[11]~reg0.ACLR
+reset => count[12]~reg0.ACLR
+reset => count[13]~reg0.ACLR
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[3] <= count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[4] <= count[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[5] <= count[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[6] <= count[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[7] <= count[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[8] <= count[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[9] <= count[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[10] <= count[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[11] <= count[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[12] <= count[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[13] <= count[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |PBL3|contador_3bit_padrao:recargas_disponiveis

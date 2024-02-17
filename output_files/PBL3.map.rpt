@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PBL3
-Thu Feb 15 23:09:00 2024
+Fri Feb 16 22:49:22 2024
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -17,11 +17,8 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   9. Inverted Register Statistics
  10. Multiplexer Restructuring Statistics (Restructuring Performed)
  11. Port Connectivity Checks: "contador_2bit_asc:cont_dig_7seg"
- 12. Port Connectivity Checks: "contador_4bit_asc_lim9:cont_dezena_gar"
- 13. Port Connectivity Checks: "contador_4bit_asc_lim9:cont_unidade_gar"
- 14. Port Connectivity Checks: "decod_numeros_7seg_0a3:decod_dezena_r"
- 15. Port Connectivity Checks: "decod_numeros_7seg_0a9:decod_unidade_r"
- 16. Analysis & Synthesis Messages
+ 12. Port Connectivity Checks: "div_clock:divisor"
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -48,13 +45,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu Feb 15 23:09:00 2024       ;
+; Analysis & Synthesis Status ; Successful - Fri Feb 16 22:49:22 2024       ;
 ; Quartus Prime Version       ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name               ; PBL3                                        ;
 ; Top-level Entity Name       ; PBL3                                        ;
 ; Family                      ; MAX II                                      ;
-; Total logic elements        ; 37                                          ;
-; Total pins                  ; 14                                          ;
+; Total logic elements        ; 82                                          ;
+; Total pins                  ; 29                                          ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
 +-----------------------------+---------------------------------------------+
@@ -162,41 +159,43 @@ https://fpgasoftware.intel.com/eula.
 ; decod_numeros_7seg_0a3.v         ; yes             ; User Verilog HDL File  ; C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/decod_numeros_7seg_0a3.v  ;         ;
 ; contador_4bit_asc_lim9.v         ; yes             ; User Verilog HDL File  ; C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_4bit_asc_lim9.v  ;         ;
 ; contador_2bit_asc.v              ; yes             ; User Verilog HDL File  ; C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_2bit_asc.v       ;         ;
+; div_clock.v                      ; yes             ; User Verilog HDL File  ; C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/div_clock.v               ;         ;
 +----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                       ;
-+---------------------------------------------+-----------------------------------------------------+
-; Resource                                    ; Usage                                               ;
-+---------------------------------------------+-----------------------------------------------------+
-; Total logic elements                        ; 37                                                  ;
-;     -- Combinational with no register       ; 26                                                  ;
-;     -- Register only                        ; 1                                                   ;
-;     -- Combinational with a register        ; 10                                                  ;
-;                                             ;                                                     ;
-; Logic element usage by number of LUT inputs ;                                                     ;
-;     -- 4 input functions                    ; 20                                                  ;
-;     -- 3 input functions                    ; 3                                                   ;
-;     -- 2 input functions                    ; 10                                                  ;
-;     -- 1 input functions                    ; 3                                                   ;
-;     -- 0 input functions                    ; 0                                                   ;
-;                                             ;                                                     ;
-; Logic elements by mode                      ;                                                     ;
-;     -- normal mode                          ; 37                                                  ;
-;     -- arithmetic mode                      ; 0                                                   ;
-;     -- qfbk mode                            ; 0                                                   ;
-;     -- register cascade mode                ; 0                                                   ;
-;     -- synchronous clear/load mode          ; 0                                                   ;
-;     -- asynchronous clear/load mode         ; 9                                                   ;
-;                                             ;                                                     ;
-; Total registers                             ; 11                                                  ;
-; I/O pins                                    ; 14                                                  ;
-; Maximum fan-out node                        ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ;
-; Maximum fan-out                             ; 14                                                  ;
-; Total fan-out                               ; 143                                                 ;
-; Average fan-out                             ; 2.80                                                ;
-+---------------------------------------------+-----------------------------------------------------+
++----------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                            ;
++---------------------------------------------+------------------------------------------+
+; Resource                                    ; Usage                                    ;
++---------------------------------------------+------------------------------------------+
+; Total logic elements                        ; 82                                       ;
+;     -- Combinational with no register       ; 49                                       ;
+;     -- Register only                        ; 1                                        ;
+;     -- Combinational with a register        ; 32                                       ;
+;                                             ;                                          ;
+; Logic element usage by number of LUT inputs ;                                          ;
+;     -- 4 input functions                    ; 46                                       ;
+;     -- 3 input functions                    ; 5                                        ;
+;     -- 2 input functions                    ; 24                                       ;
+;     -- 1 input functions                    ; 6                                        ;
+;     -- 0 input functions                    ; 0                                        ;
+;                                             ;                                          ;
+; Logic elements by mode                      ;                                          ;
+;     -- normal mode                          ; 69                                       ;
+;     -- arithmetic mode                      ; 13                                       ;
+;     -- qfbk mode                            ; 0                                        ;
+;     -- register cascade mode                ; 0                                        ;
+;     -- synchronous clear/load mode          ; 0                                        ;
+;     -- asynchronous clear/load mode         ; 17                                       ;
+;                                             ;                                          ;
+; Total registers                             ; 33                                       ;
+; Total logic cells in carry chains           ; 14                                       ;
+; I/O pins                                    ; 29                                       ;
+; Maximum fan-out node                        ; contador_2bit_asc:cont_dig_7seg|count[1] ;
+; Maximum fan-out                             ; 16                                       ;
+; Total fan-out                               ; 329                                      ;
+; Average fan-out                             ; 2.96                                     ;
++---------------------------------------------+------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -204,14 +203,20 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node                      ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                              ; Entity Name             ; Library Name ;
 +-------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------+-------------------------+--------------+
-; |PBL3                                           ; 37 (4)      ; 11           ; 0          ; 14   ; 0            ; 26 (4)       ; 1 (0)             ; 10 (0)           ; 0 (0)           ; 0 (0)      ; |PBL3                                            ; PBL3                    ; work         ;
+; |PBL3                                           ; 82 (5)      ; 33           ; 0          ; 29   ; 0            ; 49 (5)       ; 1 (0)             ; 32 (0)           ; 14 (0)          ; 0 (0)      ; |PBL3                                            ; PBL3                    ; work         ;
 ;    |MUX_4_1:mux_4_1_7seg|                       ; 18 (18)     ; 0            ; 0          ; 0    ; 0            ; 18 (18)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |PBL3|MUX_4_1:mux_4_1_7seg                       ; MUX_4_1                 ; work         ;
 ;    |contador_2bit_asc:cont_dig_7seg|            ; 2 (2)       ; 2            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |PBL3|contador_2bit_asc:cont_dig_7seg            ; contador_2bit_asc       ; work         ;
 ;    |contador_2bit_desc_lim2:cont_dezena_rolha|  ; 2 (2)       ; 2            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |PBL3|contador_2bit_desc_lim2:cont_dezena_rolha  ; contador_2bit_desc_lim2 ; work         ;
 ;    |contador_3bit_padrao:recargas_disponiveis|  ; 3 (3)       ; 3            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |PBL3|contador_3bit_padrao:recargas_disponiveis  ; contador_3bit_padrao    ; work         ;
+;    |contador_4bit_asc_lim9:cont_dezena_gar|     ; 4 (4)       ; 4            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |PBL3|contador_4bit_asc_lim9:cont_dezena_gar     ; contador_4bit_asc_lim9  ; work         ;
+;    |contador_4bit_asc_lim9:cont_unidade_gar|    ; 4 (4)       ; 4            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |PBL3|contador_4bit_asc_lim9:cont_unidade_gar    ; contador_4bit_asc_lim9  ; work         ;
 ;    |contador_4bit_desc_lim5:cont_unidade_rolha| ; 4 (4)       ; 4            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |PBL3|contador_4bit_desc_lim5:cont_unidade_rolha ; contador_4bit_desc_lim5 ; work         ;
-;    |decod_2_4:decod_dig_7seg|                   ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |PBL3|decod_2_4:decod_dig_7seg                   ; decod_2_4               ; work         ;
-;    |decod_numeros_7seg_0a3:decod_dezena_r|      ; 1 (1)       ; 0            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |PBL3|decod_numeros_7seg_0a3:decod_dezena_r      ; decod_numeros_7seg_0a3  ; work         ;
+;    |decod_2_4:decod_dig_7seg|                   ; 4 (4)       ; 0            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |PBL3|decod_2_4:decod_dig_7seg                   ; decod_2_4               ; work         ;
+;    |decod_numeros_7seg_0a3:decod_dezena_r|      ; 3 (3)       ; 0            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |PBL3|decod_numeros_7seg_0a3:decod_dezena_r      ; decod_numeros_7seg_0a3  ; work         ;
+;    |decod_numeros_7seg_0a9:decod_dezena_gar|    ; 6 (6)       ; 0            ; 0          ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |PBL3|decod_numeros_7seg_0a9:decod_dezena_gar    ; decod_numeros_7seg_0a9  ; work         ;
+;    |decod_numeros_7seg_0a9:decod_unidade_gar|   ; 6 (6)       ; 0            ; 0          ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |PBL3|decod_numeros_7seg_0a9:decod_unidade_gar   ; decod_numeros_7seg_0a9  ; work         ;
+;    |decod_numeros_7seg_0a9:decod_unidade_r|     ; 7 (7)       ; 0            ; 0          ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |PBL3|decod_numeros_7seg_0a9:decod_unidade_r     ; decod_numeros_7seg_0a9  ; work         ;
+;    |div_clock:divisor|                          ; 14 (14)     ; 14           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 14 (14)          ; 14 (14)         ; 0 (0)      ; |PBL3|div_clock:divisor                          ; div_clock               ; work         ;
 +-------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -221,10 +226,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 11    ;
+; Total registers                              ; 33    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 9     ;
+; Number of registers using Asynchronous Clear ; 17    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
@@ -236,9 +241,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------+---------+
 ; Inverted Register                                   ; Fan out ;
 +-----------------------------------------------------+---------+
-; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; 5       ;
-; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; 11      ;
-; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 14      ;
+; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; 6       ;
+; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; 14      ;
+; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 15      ;
 ; Total number of inverted registers = 3              ;         ;
 +-----------------------------------------------------+---------+
 
@@ -248,8 +253,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |PBL3|MUX_4_1:mux_4_1_7seg|Mux5 ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |PBL3|MUX_4_1:mux_4_1_7seg|Mux3 ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |PBL3|MUX_4_1:mux_4_1_7seg|Mux6 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 
 
@@ -263,42 +267,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "contador_4bit_asc_lim9:cont_dezena_gar"                                                                                                                                           ;
-+-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                                                                                                                          ;
-+-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; reset ; Input  ; Warning  ; Input port expression (4 bits) is wider than the input port (1 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; count ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                                         ;
-+-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "contador_4bit_asc_lim9:cont_unidade_gar"                                                                                                                                          ;
-+-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                                                                                                                          ;
-+-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; reset ; Input  ; Warning  ; Input port expression (4 bits) is wider than the input port (1 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; count ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "count[3..1]" have no fanouts                                                         ;
-+-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "decod_numeros_7seg_0a3:decod_dezena_r"                                                                   ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                  ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; sG   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "decod_numeros_7seg_0a9:decod_unidade_r"                                                                  ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                  ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; sG   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "div_clock:divisor"                                                                                                                                                                         ;
++--------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                                                                            ;
++--------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; reset        ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; reset[-1]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; count[12..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++--------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -307,7 +284,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Feb 15 23:08:49 2024
+    Info: Processing started: Fri Feb 16 22:49:11 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PBL3 -c PBL3
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -337,99 +314,43 @@ Info (12021): Found 1 design units, including 1 entities, in source file contado
     Info (12023): Found entity 1: contador_4bit_asc_lim9 File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_4bit_asc_lim9.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file contador_2bit_asc.v
     Info (12023): Found entity 1: contador_2bit_asc File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_2bit_asc.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(13): created implicit net for "recarga_auto" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 13
-Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(15): created implicit net for "pode_recaregar" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 15
-Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(16): created implicit net for "r_zerada" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 16
-Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(17): created implicit net for "pode_diminuir" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 17
-Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(21): created implicit net for "unidade_completa_r" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 21
-Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(22): created implicit net for "minimo_rolhas" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file div_clock.v
+    Info (12023): Found entity 1: div_clock File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/div_clock.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(27): created implicit net for "recarga_auto" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 27
+Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(30): created implicit net for "pode_recaregar" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 30
+Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(31): created implicit net for "r_zerada" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 31
+Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(32): created implicit net for "pode_diminuir" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 32
+Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(39): created implicit net for "unidade_completa_r" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 39
+Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(40): created implicit net for "minimo_rolhas" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at PBL3.v(61): created implicit net for "unidade_completa_g" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 61
 Info (12127): Elaborating entity "PBL3" for the top level hierarchy
-Info (12128): Elaborating entity "contador_3bit_padrao" for hierarchy "contador_3bit_padrao:recargas_disponiveis" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 13
+Info (12128): Elaborating entity "div_clock" for hierarchy "div_clock:divisor" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 24
+Warning (10230): Verilog HDL assignment warning at div_clock.v(24): truncated value with size 32 to match size of target (14) File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/div_clock.v Line: 24
+Info (12128): Elaborating entity "contador_3bit_padrao" for hierarchy "contador_3bit_padrao:recargas_disponiveis" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 27
 Warning (10230): Verilog HDL assignment warning at contador_3bit_padrao.v(13): truncated value with size 32 to match size of target (3) File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_3bit_padrao.v Line: 13
-Info (12128): Elaborating entity "contador_4bit_desc_lim5" for hierarchy "contador_4bit_desc_lim5:cont_unidade_rolha" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 19
+Info (12128): Elaborating entity "contador_4bit_desc_lim5" for hierarchy "contador_4bit_desc_lim5:cont_unidade_rolha" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 35
 Warning (10230): Verilog HDL assignment warning at contador_4bit_desc_lim5.v(24): truncated value with size 32 to match size of target (4) File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_4bit_desc_lim5.v Line: 24
-Info (12128): Elaborating entity "contador_2bit_desc_lim2" for hierarchy "contador_2bit_desc_lim2:cont_dezena_rolha" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 25
+Info (12128): Elaborating entity "contador_2bit_desc_lim2" for hierarchy "contador_2bit_desc_lim2:cont_dezena_rolha" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 45
 Warning (10230): Verilog HDL assignment warning at contador_2bit_desc_lim2.v(24): truncated value with size 32 to match size of target (2) File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_2bit_desc_lim2.v Line: 24
-Info (12128): Elaborating entity "decod_numeros_7seg_0a9" for hierarchy "decod_numeros_7seg_0a9:decod_unidade_r" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 28
-Info (12128): Elaborating entity "decod_numeros_7seg_0a3" for hierarchy "decod_numeros_7seg_0a3:decod_dezena_r" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 31
+Info (12128): Elaborating entity "decod_numeros_7seg_0a9" for hierarchy "decod_numeros_7seg_0a9:decod_unidade_r" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 50
+Info (12128): Elaborating entity "decod_numeros_7seg_0a3" for hierarchy "decod_numeros_7seg_0a3:decod_dezena_r" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 54
 Warning (10034): Output port "sB" at decod_numeros_7seg_0a3.v(3) has no driver File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/decod_numeros_7seg_0a3.v Line: 3
-Info (12128): Elaborating entity "contador_4bit_asc_lim9" for hierarchy "contador_4bit_asc_lim9:cont_unidade_gar" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 34
+Info (12128): Elaborating entity "contador_4bit_asc_lim9" for hierarchy "contador_4bit_asc_lim9:cont_unidade_gar" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 58
 Warning (10230): Verilog HDL assignment warning at contador_4bit_asc_lim9.v(24): truncated value with size 32 to match size of target (4) File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_4bit_asc_lim9.v Line: 24
-Info (12128): Elaborating entity "contador_2bit_asc" for hierarchy "contador_2bit_asc:cont_dig_7seg" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 45
+Info (12128): Elaborating entity "contador_2bit_asc" for hierarchy "contador_2bit_asc:cont_dig_7seg" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 73
 Warning (10230): Verilog HDL assignment warning at contador_2bit_asc.v(24): truncated value with size 32 to match size of target (2) File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_2bit_asc.v Line: 24
-Info (12128): Elaborating entity "decod_2_4" for hierarchy "decod_2_4:decod_dig_7seg" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 49
-Info (12128): Elaborating entity "MUX_4_1" for hierarchy "MUX_4_1:mux_4_1_7seg" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 56
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "dezena_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "unidade_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "unidade_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "unidade_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "unidade_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "unidade_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "unidade_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "unidade_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[3]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[2]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[1]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-    Warning (12110): Net "dezena_gar[0]" is missing source, defaulting to GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 7
-Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "OUT[0]" is stuck at GND File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 3
+Info (12128): Elaborating entity "decod_2_4" for hierarchy "decod_2_4:decod_dig_7seg" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 77
+Info (12128): Elaborating entity "MUX_4_1" for hierarchy "MUX_4_1:mux_4_1_7seg" File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/PBL3.v Line: 84
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (18000): Registers with preset signals will power-up high File: C:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/contador_2bit_desc_lim2.v Line: 15
-Info (21057): Implemented 51 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 37 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 75 warnings
-    Info: Peak virtual memory: 4701 megabytes
-    Info: Processing ended: Thu Feb 15 23:09:00 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:28
+Info (21057): Implemented 111 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 25 output pins
+    Info (21061): Implemented 82 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
+    Info: Peak virtual memory: 4700 megabytes
+    Info: Processing ended: Fri Feb 16 22:49:23 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:29
 
 

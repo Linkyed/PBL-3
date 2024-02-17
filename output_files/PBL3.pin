@@ -64,22 +64,22 @@ CHIP  "PBL3"  ASSIGNED TO AN: EPM240T100C5
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
 GND*                         : 1         :        :                   :         : 2         :                
-OUT[5]                       : 2         : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : 2         :        :                   :         : 1         :                
 GND*                         : 3         :        :                   :         : 1         :                
-GND*                         : 4         :        :                   :         : 1         :                
+teste_uni_gar[2]             : 4         : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : 5         :        :                   :         : 1         :                
-OUT[3]                       : 6         : output : 3.3-V LVTTL       :         : 1         : N              
-CH0                          : 7         : input  : 3.3-V LVTTL       :         : 1         : N              
-CH1                          : 8         : input  : 3.3-V LVTTL       :         : 1         : N              
+teste_uni_gar[0]             : 6         : output : 3.3-V LVTTL       :         : 1         : N              
+teste_uni_gar[3]             : 7         : output : 3.3-V LVTTL       :         : 1         : N              
+teste_uni_gar[1]             : 8         : output : 3.3-V LVTTL       :         : 1         : N              
 VCCIO1                       : 9         : power  :                   : 3.3V    : 1         :                
 GNDIO                        : 10        : gnd    :                   :         :           :                
 GNDINT                       : 11        : gnd    :                   :         :           :                
-OUT[6]                       : 12        : output : 3.3-V LVTTL       :         : 1         : N              
+clk                          : 12        : input  : 3.3-V LVTTL       :         : 1         : Y              
 VCCINT                       : 13        : power  :                   : 2.5V/3.3V :           :                
-clk                          : 14        : input  : 3.3-V LVTTL       :         : 1         : N              
-GND*                         : 15        :        :                   :         : 1         :                
-GND*                         : 16        :        :                   :         : 1         :                
-GND*                         : 17        :        :                   :         : 1         :                
+teste_deze_gar[0]            : 14        : output : 3.3-V LVTTL       :         : 1         : N              
+teste_deze_gar[2]            : 15        : output : 3.3-V LVTTL       :         : 1         : N              
+teste_deze_gar[1]            : 16        : output : 3.3-V LVTTL       :         : 1         : N              
+teste_deze_gar[3]            : 17        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : 18        :        :                   :         : 1         :                
 GND*                         : 19        :        :                   :         : 1         :                
 GND*                         : 20        :        :                   :         : 1         :                
@@ -92,21 +92,21 @@ GND*                         : 26        :        :                   :         
 GND*                         : 27        :        :                   :         : 1         :                
 GND*                         : 28        :        :                   :         : 1         :                
 GND*                         : 29        :        :                   :         : 1         :                
-GND*                         : 30        :        :                   :         : 1         :                
+teste_uni_rol[1]             : 30        : output : 3.3-V LVTTL       :         : 1         : N              
 VCCIO1                       : 31        : power  :                   : 3.3V    : 1         :                
 GNDIO                        : 32        : gnd    :                   :         :           :                
 GND*                         : 33        :        :                   :         : 1         :                
-GND*                         : 34        :        :                   :         : 1         :                
-GND*                         : 35        :        :                   :         : 1         :                
-GND*                         : 36        :        :                   :         : 1         :                
-GND*                         : 37        :        :                   :         : 1         :                
-GND*                         : 38        :        :                   :         : 1         :                
-GND*                         : 39        :        :                   :         : 1         :                
-GND*                         : 40        :        :                   :         : 1         :                
-GND*                         : 41        :        :                   :         : 1         :                
-GND*                         : 42        :        :                   :         : 1         :                
-GND*                         : 43        :        :                   :         : 1         :                
-GND*                         : 44        :        :                   :         : 1         :                
+teste_uni_rol[2]             : 34        : output : 3.3-V LVTTL       :         : 1         : N              
+teste_uni_rol[3]             : 35        : output : 3.3-V LVTTL       :         : 1         : N              
+teste_deze_rol[0]            : 36        : output : 3.3-V LVTTL       :         : 1         : N              
+dig3                         : 37        : output : 3.3-V LVTTL       :         : 1         : Y              
+CH2                          : 38        : input  : 3.3-V LVTTL       :         : 1         : Y              
+OUT[6]                       : 39        : output : 3.3-V LVTTL       :         : 1         : Y              
+CH1                          : 40        : input  : 3.3-V LVTTL       :         : 1         : Y              
+OUT[2]                       : 41        : output : 3.3-V LVTTL       :         : 1         : Y              
+CH0                          : 42        : input  : 3.3-V LVTTL       :         : 1         : Y              
+teste_deze_rol[1]            : 43        : output : 3.3-V LVTTL       :         : 1         : N              
+teste_uni_rol[0]             : 44        : output : 3.3-V LVTTL       :         : 1         : N              
 VCCIO1                       : 45        : power  :                   : 3.3V    : 1         :                
 GNDIO                        : 46        : gnd    :                   :         :           :                
 GND*                         : 47        :        :                   :         : 1         :                
@@ -128,12 +128,12 @@ GND*                         : 62        :        :                   :         
 VCCINT                       : 63        : power  :                   : 2.5V/3.3V :           :                
 GND*                         : 64        :        :                   :         : 2         :                
 GNDINT                       : 65        : gnd    :                   :         :           :                
-GND*                         : 66        :        :                   :         : 2         :                
+dig1                         : 66        : output : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : 67        :        :                   :         : 2         :                
-GND*                         : 68        :        :                   :         : 2         :                
+dig2                         : 68        : output : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : 69        :        :                   :         : 2         :                
-GND*                         : 70        :        :                   :         : 2         :                
-OUT[0]                       : 71        : output : 3.3-V LVTTL       :         : 2         : N              
+OUT[1]                       : 70        : output : 3.3-V LVTTL       :         : 2         : Y              
+GND*                         : 71        :        :                   :         : 2         :                
 GND*                         : 72        :        :                   :         : 2         :                
 GND*                         : 73        :        :                   :         : 2         :                
 GND*                         : 74        :        :                   :         : 2         :                
@@ -150,16 +150,16 @@ GND*                         : 84        :        :                   :         
 GND*                         : 85        :        :                   :         : 2         :                
 GND*                         : 86        :        :                   :         : 2         :                
 GND*                         : 87        :        :                   :         : 2         :                
-GND*                         : 88        :        :                   :         : 2         :                
-dig1                         : 89        : output : 3.3-V LVTTL       :         : 2         : N              
-dig3                         : 90        : output : 3.3-V LVTTL       :         : 2         : N              
-OUT[1]                       : 91        : output : 3.3-V LVTTL       :         : 2         : N              
-OUT[4]                       : 92        : output : 3.3-V LVTTL       :         : 2         : N              
+dig0                         : 88        : output : 3.3-V LVTTL       :         : 2         : Y              
+GND*                         : 89        :        :                   :         : 2         :                
+OUT[0]                       : 90        : output : 3.3-V LVTTL       :         : 2         : Y              
+GND*                         : 91        :        :                   :         : 2         :                
+OUT[5]                       : 92        : output : 3.3-V LVTTL       :         : 2         : Y              
 GNDIO                        : 93        : gnd    :                   :         :           :                
 VCCIO2                       : 94        : power  :                   : 3.3V    : 2         :                
-dig2                         : 95        : output : 3.3-V LVTTL       :         : 2         : N              
-OUT[2]                       : 96        : output : 3.3-V LVTTL       :         : 2         : N              
-dig0                         : 97        : output : 3.3-V LVTTL       :         : 2         : N              
-GND*                         : 98        :        :                   :         : 2         :                
+GND*                         : 95        :        :                   :         : 2         :                
+GND*                         : 96        :        :                   :         : 2         :                
+GND*                         : 97        :        :                   :         : 2         :                
+OUT[3]                       : 98        : output : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : 99        :        :                   :         : 2         :                
-GND*                         : 100       :        :                   :         : 2         :                
+OUT[4]                       : 100       : output : 3.3-V LVTTL       :         : 2         : Y              

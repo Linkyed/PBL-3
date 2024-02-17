@@ -19,7 +19,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "02/15/2024 22:36:08"
+// Generated on "02/16/2024 20:16:01"
                                                                                 
 // Verilog Test Bench (with test vectors) for design :                          PBL3
 // 
@@ -32,6 +32,7 @@ module PBL3_vlg_vec_tst();
 // general purpose registers
 reg CH0;
 reg CH1;
+reg CH2;
 reg clk;
 // wires                                               
 wire [6:0] OUT;
@@ -39,24 +40,27 @@ wire dig0;
 wire dig1;
 wire dig2;
 wire dig3;
-wire [3:0] teste0;
-wire [1:0] teste1;
-wire [2:0] teste2;
+wire [3:0] teste_deze_gar;
+wire [1:0] teste_deze_rol;
+wire [3:0] teste_uni_gar;
+wire [3:0] teste_uni_rol;
 
 // assign statements (if any)                          
 PBL3 i1 (
 // port map - connection between master ports and signals/registers   
 	.CH0(CH0),
 	.CH1(CH1),
+	.CH2(CH2),
 	.OUT(OUT),
 	.clk(clk),
 	.dig0(dig0),
 	.dig1(dig1),
 	.dig2(dig2),
 	.dig3(dig3),
-	.teste0(teste0),
-	.teste1(teste1),
-	.teste2(teste2)
+	.teste_deze_gar(teste_deze_gar),
+	.teste_deze_rol(teste_deze_rol),
+	.teste_uni_gar(teste_uni_gar),
+	.teste_uni_rol(teste_uni_rol)
 );
 initial 
 begin 
@@ -76,6 +80,22 @@ always
 begin
 	CH0 = 1'b0;
 	CH0 = #5000 1'b1;
+	#5000;
+end 
+
+// CH2
+always
+begin
+	CH2 = 1'b0;
+	CH2 = #5000 1'b1;
+	#5000;
+end 
+
+// clk
+always
+begin
+	clk = 1'b0;
+	clk = #5000 1'b1;
 	#5000;
 end 
 endmodule

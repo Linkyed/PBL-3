@@ -10,23 +10,23 @@ z2
 cModel Technology
 Z0 dC:/Users/peedr/OneDrive/Documentos/GitHub/PBL HAHAHA/simulation/qsim
 vPBL3
-Z1 !s110 1708047371
+Z1 !s110 1708125364
 !i10b 1
-!s100 :4XkXm4diZ?K2TZZF`RAN0
+!s100 NI^`2Rn?_`>VA>DOh`iKH3
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IaM;f7ceihzcWUa235UJ^g2
+I@jTR@^MmWJ_PS_5j[K<2j2
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1708047369
+w1708125363
 8PBL3.vo
 FPBL3.vo
-!i122 40
-L0 32 824
+!i122 60
+L0 32 2827
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1708047371.000000
+Z5 !s108 1708125364.000000
 !s107 PBL3.vo|
 !s90 -work|work|PBL3.vo|
 !i113 1
@@ -36,16 +36,16 @@ n@p@b@l3
 vPBL3_vlg_vec_tst
 R1
 !i10b 1
-!s100 EMlNeAH4H8`=FciPaGB4>0
+!s100 ZE@T7BzOcY3T_Y]NWRam@1
 R2
-I0In8>BNXn00]8o2`E=K8c0
+IG547ej06_ecPTRFGEjXCd1
 R3
 R0
-w1708047368
+w1708125361
 8teste_contador_3bit_desc.vwf.vt
 Fteste_contador_3bit_desc.vwf.vt
-!i122 41
-L0 30 52
+!i122 61
+L0 30 72
 R4
 r1
 !s85 0

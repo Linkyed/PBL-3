@@ -2,35 +2,83 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Setup 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
-Slack : -1.755
-TNS   : -12.811
-
 Type  : Setup 'clk'
-Slack : -1.505
-TNS   : -3.002
+Slack : -3.973
+TNS   : -48.281
+
+Type  : Setup 'contador_4bit_asc_lim9:cont_unidade_gar|count[0]'
+Slack : -2.254
+TNS   : -7.255
+
+Type  : Setup 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+Slack : -2.185
+TNS   : -14.060
+
+Type  : Setup 'CH2'
+Slack : -1.916
+TNS   : -5.158
+
+Type  : Setup 'CH0'
+Slack : -1.742
+TNS   : -5.213
+
+Type  : Setup 'div_clock:divisor|count[13]'
+Slack : -1.482
+TNS   : -2.705
+
+Type  : Hold 'CH0'
+Slack : -7.233
+TNS   : -23.725
 
 Type  : Hold 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
-Slack : -4.092
-TNS   : -12.260
+Slack : -5.058
+TNS   : -15.163
+
+Type  : Hold 'CH2'
+Slack : -4.658
+TNS   : -16.080
 
 Type  : Hold 'clk'
-Slack : 1.695
+Slack : -1.478
+TNS   : -1.478
+
+Type  : Hold 'div_clock:divisor|count[13]'
+Slack : 1.669
+TNS   : 0.000
+
+Type  : Hold 'contador_4bit_asc_lim9:cont_unidade_gar|count[0]'
+Slack : 1.755
 TNS   : 0.000
 
 Type  : Recovery 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
-Slack : -8.126
-TNS   : -16.252
+Slack : -9.236
+TNS   : -18.472
 
 Type  : Removal 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
-Slack : 0.828
+Slack : 1.740
 TNS   : 0.000
+
+Type  : Minimum Pulse Width 'CH0'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'CH2'
+Slack : -2.289
+TNS   : -2.289
 
 Type  : Minimum Pulse Width 'clk'
 Slack : -2.289
 TNS   : -2.289
 
+Type  : Minimum Pulse Width 'contador_4bit_asc_lim9:cont_unidade_gar|count[0]'
+Slack : 0.234
+TNS   : 0.000
+
 Type  : Minimum Pulse Width 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'div_clock:divisor|count[13]'
 Slack : 0.234
 TNS   : 0.000
 

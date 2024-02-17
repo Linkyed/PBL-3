@@ -1,5 +1,5 @@
 Timing Analyzer report for PBL3
-Thu Feb 15 23:09:07 2024
+Fri Feb 16 22:49:29 2024
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -16,25 +16,33 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   8. Recovery Summary
   9. Removal Summary
  10. Minimum Pulse Width Summary
- 11. Setup: 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
- 12. Setup: 'clk'
- 13. Hold: 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
- 14. Hold: 'clk'
- 15. Recovery: 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
- 16. Removal: 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
- 17. Setup Transfers
- 18. Hold Transfers
- 19. Recovery Transfers
- 20. Removal Transfers
- 21. Report TCCS
- 22. Report RSKM
- 23. Unconstrained Paths Summary
- 24. Clock Status Summary
- 25. Unconstrained Input Ports
- 26. Unconstrained Output Ports
- 27. Unconstrained Input Ports
- 28. Unconstrained Output Ports
- 29. Timing Analyzer Messages
+ 11. Setup: 'clk'
+ 12. Setup: 'contador_4bit_asc_lim9:cont_unidade_gar|count[0]'
+ 13. Setup: 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+ 14. Setup: 'CH2'
+ 15. Setup: 'CH0'
+ 16. Setup: 'div_clock:divisor|count[13]'
+ 17. Hold: 'CH0'
+ 18. Hold: 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+ 19. Hold: 'CH2'
+ 20. Hold: 'clk'
+ 21. Hold: 'div_clock:divisor|count[13]'
+ 22. Hold: 'contador_4bit_asc_lim9:cont_unidade_gar|count[0]'
+ 23. Recovery: 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+ 24. Removal: 'contador_4bit_desc_lim5:cont_unidade_rolha|count[0]'
+ 25. Setup Transfers
+ 26. Hold Transfers
+ 27. Recovery Transfers
+ 28. Removal Transfers
+ 29. Report TCCS
+ 30. Report RSKM
+ 31. Unconstrained Paths Summary
+ 32. Clock Status Summary
+ 33. Unconstrained Input Ports
+ 34. Unconstrained Output Ports
+ 35. Unconstrained Input Ports
+ 36. Unconstrained Output Ports
+ 37. Timing Analyzer Messages
 
 
 
@@ -81,10 +89,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -93,8 +102,12 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------------------+
 ; Clock Name                                          ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                                 ;
 +-----------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------------------+
+; CH0                                                 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CH0 }                                                 ;
+; CH2                                                 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CH2 }                                                 ;
 ; clk                                                 ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                                                 ;
+; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { contador_4bit_asc_lim9:cont_unidade_gar|count[0] }    ;
 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { contador_4bit_desc_lim5:cont_unidade_rolha|count[0] } ;
+; div_clock:divisor|count[13]                         ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { div_clock:divisor|count[13] }                         ;
 +-----------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------------------+
 
 
@@ -103,8 +116,12 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-----------------------------------------------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                          ; Note                                                          ;
 +------------+-----------------+-----------------------------------------------------+---------------------------------------------------------------+
-; 362.98 MHz ; 122.19 MHz      ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; limit due to hold check                                       ;
-; 399.2 MHz  ; 304.04 MHz      ; clk                                                 ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 201.09 MHz ; 201.09 MHz      ; clk                                                 ;                                                               ;
+; 307.31 MHz ; 307.31 MHz      ; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ;                                                               ;
+; 342.94 MHz ; 304.04 MHz      ; CH2                                                 ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 364.7 MHz  ; 304.04 MHz      ; CH0                                                 ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 364.7 MHz  ; 98.85 MHz       ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; limit due to hold check                                       ;
+; 402.9 MHz  ; 402.9 MHz       ; div_clock:divisor|count[13]                         ;                                                               ;
 +------------+-----------------+-----------------------------------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -114,8 +131,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------------+--------+---------------+
 ; Clock                                               ; Slack  ; End Point TNS ;
 +-----------------------------------------------------+--------+---------------+
-; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -1.755 ; -12.811       ;
-; clk                                                 ; -1.505 ; -3.002        ;
+; clk                                                 ; -3.973 ; -48.281       ;
+; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; -2.254 ; -7.255        ;
+; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -2.185 ; -14.060       ;
+; CH2                                                 ; -1.916 ; -5.158        ;
+; CH0                                                 ; -1.742 ; -5.213        ;
+; div_clock:divisor|count[13]                         ; -1.482 ; -2.705        ;
 +-----------------------------------------------------+--------+---------------+
 
 
@@ -124,8 +145,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------------+--------+---------------+
 ; Clock                                               ; Slack  ; End Point TNS ;
 +-----------------------------------------------------+--------+---------------+
-; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -4.092 ; -12.260       ;
-; clk                                                 ; 1.695  ; 0.000         ;
+; CH0                                                 ; -7.233 ; -23.725       ;
+; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -5.058 ; -15.163       ;
+; CH2                                                 ; -4.658 ; -16.080       ;
+; clk                                                 ; -1.478 ; -1.478        ;
+; div_clock:divisor|count[13]                         ; 1.669  ; 0.000         ;
+; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; 1.755  ; 0.000         ;
 +-----------------------------------------------------+--------+---------------+
 
 
@@ -134,7 +159,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------------+--------+---------------+
 ; Clock                                               ; Slack  ; End Point TNS ;
 +-----------------------------------------------------+--------+---------------+
-; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -8.126 ; -16.252       ;
+; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -9.236 ; -18.472       ;
 +-----------------------------------------------------+--------+---------------+
 
 
@@ -143,7 +168,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------------+-------+---------------+
 ; Clock                                               ; Slack ; End Point TNS ;
 +-----------------------------------------------------+-------+---------------+
-; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.828 ; 0.000         ;
+; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.740 ; 0.000         ;
 +-----------------------------------------------------+-------+---------------+
 
 
@@ -152,9 +177,141 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------------+--------+---------------+
 ; Clock                                               ; Slack  ; End Point TNS ;
 +-----------------------------------------------------+--------+---------------+
+; CH0                                                 ; -2.289 ; -2.289        ;
+; CH2                                                 ; -2.289 ; -2.289        ;
 ; clk                                                 ; -2.289 ; -2.289        ;
+; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; 0.234  ; 0.000         ;
 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.234  ; 0.000         ;
+; div_clock:divisor|count[13]                         ; 0.234  ; 0.000         ;
 +-----------------------------------------------------+--------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                             ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                   ; To Node                     ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+; -3.973 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.640      ;
+; -3.973 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.640      ;
+; -3.973 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.640      ;
+; -3.973 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.640      ;
+; -3.973 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.640      ;
+; -3.960 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.627      ;
+; -3.960 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.627      ;
+; -3.851 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.518      ;
+; -3.851 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.518      ;
+; -3.851 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.518      ;
+; -3.851 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.518      ;
+; -3.851 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.518      ;
+; -3.838 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.505      ;
+; -3.838 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.505      ;
+; -3.806 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.473      ;
+; -3.806 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.473      ;
+; -3.806 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.473      ;
+; -3.806 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.473      ;
+; -3.806 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.473      ;
+; -3.793 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.460      ;
+; -3.793 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.460      ;
+; -3.654 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.321      ;
+; -3.654 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.321      ;
+; -3.654 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.321      ;
+; -3.654 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.321      ;
+; -3.654 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.321      ;
+; -3.641 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.308      ;
+; -3.641 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.308      ;
+; -3.595 ; div_clock:divisor|count[5]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.262      ;
+; -3.595 ; div_clock:divisor|count[5]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.262      ;
+; -3.595 ; div_clock:divisor|count[5]  ; div_clock:divisor|count[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.262      ;
+; -3.595 ; div_clock:divisor|count[5]  ; div_clock:divisor|count[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.262      ;
+; -3.595 ; div_clock:divisor|count[5]  ; div_clock:divisor|count[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.262      ;
+; -3.582 ; div_clock:divisor|count[5]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.249      ;
+; -3.582 ; div_clock:divisor|count[5]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.249      ;
+; -3.496 ; div_clock:divisor|count[4]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.163      ;
+; -3.496 ; div_clock:divisor|count[4]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.163      ;
+; -3.496 ; div_clock:divisor|count[4]  ; div_clock:divisor|count[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.163      ;
+; -3.496 ; div_clock:divisor|count[4]  ; div_clock:divisor|count[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.163      ;
+; -3.496 ; div_clock:divisor|count[4]  ; div_clock:divisor|count[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 4.163      ;
+; -3.483 ; div_clock:divisor|count[4]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.150      ;
+; -3.483 ; div_clock:divisor|count[4]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.150      ;
+; -3.361 ; div_clock:divisor|count[7]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.028      ;
+; -3.361 ; div_clock:divisor|count[7]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 4.028      ;
+; -3.325 ; div_clock:divisor|count[6]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.992      ;
+; -3.325 ; div_clock:divisor|count[6]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.992      ;
+; -3.325 ; div_clock:divisor|count[6]  ; div_clock:divisor|count[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.992      ;
+; -3.325 ; div_clock:divisor|count[6]  ; div_clock:divisor|count[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.992      ;
+; -3.325 ; div_clock:divisor|count[6]  ; div_clock:divisor|count[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.992      ;
+; -3.312 ; div_clock:divisor|count[6]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.979      ;
+; -3.312 ; div_clock:divisor|count[6]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.979      ;
+; -3.231 ; div_clock:divisor|count[8]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.898      ;
+; -3.231 ; div_clock:divisor|count[8]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.898      ;
+; -3.207 ; div_clock:divisor|count[10] ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.874      ;
+; -3.207 ; div_clock:divisor|count[10] ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.874      ;
+; -3.198 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.865      ;
+; -3.198 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.865      ;
+; -3.198 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.865      ;
+; -3.198 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.865      ;
+; -3.198 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.865      ;
+; -3.109 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.776      ;
+; -3.108 ; div_clock:divisor|count[9]  ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.775      ;
+; -3.108 ; div_clock:divisor|count[9]  ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.775      ;
+; -3.055 ; div_clock:divisor|count[11] ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.722      ;
+; -3.055 ; div_clock:divisor|count[11] ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.722      ;
+; -3.046 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.713      ;
+; -3.046 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.713      ;
+; -3.046 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.713      ;
+; -3.046 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.713      ;
+; -3.046 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.713      ;
+; -2.987 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.654      ;
+; -2.986 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.653      ;
+; -2.894 ; div_clock:divisor|count[7]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.561      ;
+; -2.864 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.531      ;
+; -2.863 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.530      ;
+; -2.771 ; div_clock:divisor|count[7]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.438      ;
+; -2.764 ; div_clock:divisor|count[8]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.431      ;
+; -2.748 ; div_clock:divisor|count[12] ; div_clock:divisor|count[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.415      ;
+; -2.741 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.408      ;
+; -2.740 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.407      ;
+; -2.740 ; div_clock:divisor|count[10] ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.407      ;
+; -2.731 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.398      ;
+; -2.731 ; div_clock:divisor|count[5]  ; div_clock:divisor|count[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.398      ;
+; -2.648 ; div_clock:divisor|count[7]  ; div_clock:divisor|count[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.315      ;
+; -2.641 ; div_clock:divisor|count[9]  ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.308      ;
+; -2.641 ; div_clock:divisor|count[8]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.308      ;
+; -2.632 ; div_clock:divisor|count[4]  ; div_clock:divisor|count[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.299      ;
+; -2.525 ; div_clock:divisor|count[7]  ; div_clock:divisor|count[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.192      ;
+; -2.518 ; div_clock:divisor|count[9]  ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 3.185      ;
+; -2.518 ; div_clock:divisor|count[8]  ; div_clock:divisor|count[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.185      ;
+; -2.509 ; div_clock:divisor|count[4]  ; div_clock:divisor|count[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 3.176      ;
+; -1.794 ; div_clock:divisor|count[11] ; div_clock:divisor|count[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 2.461      ;
+; -1.792 ; div_clock:divisor|count[12] ; div_clock:divisor|count[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 2.459      ;
+; -1.785 ; div_clock:divisor|count[3]  ; div_clock:divisor|count[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.452      ;
+; -1.785 ; div_clock:divisor|count[1]  ; div_clock:divisor|count[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.452      ;
+; -1.784 ; div_clock:divisor|count[10] ; div_clock:divisor|count[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 2.451      ;
+; -1.784 ; div_clock:divisor|count[2]  ; div_clock:divisor|count[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.451      ;
+; -1.775 ; div_clock:divisor|count[5]  ; div_clock:divisor|count[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.442      ;
+; -1.775 ; div_clock:divisor|count[0]  ; div_clock:divisor|count[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.442      ;
+; -1.678 ; div_clock:divisor|count[7]  ; div_clock:divisor|count[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 2.345      ;
++--------+-----------------------------+-----------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'contador_4bit_asc_lim9:cont_unidade_gar|count[0]'                                                                                                                                                                                                 ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------------------------------------------+--------------------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                       ; To Node                                         ; Launch Clock                                     ; Latch Clock                                      ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------------------------------------------+--------------------------------------------------+--------------+------------+------------+
+; -2.254 ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 2.921      ;
+; -1.897 ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 2.564      ;
+; -1.795 ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 2.462      ;
+; -1.721 ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 2.388      ;
+; -1.698 ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 2.365      ;
+; -1.682 ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 2.349      ;
+; -1.511 ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 2.178      ;
+; -1.496 ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 2.163      ;
+; -1.474 ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 2.141      ;
+; -1.319 ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 1.986      ;
+; -1.312 ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 1.979      ;
+; -1.309 ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 1.000        ; 0.000      ; 1.976      ;
++--------+-------------------------------------------------+-------------------------------------------------+--------------------------------------------------+--------------------------------------------------+--------------+------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -162,43 +319,144 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
 ; Slack  ; From Node                                           ; To Node                                             ; Launch Clock                                        ; Latch Clock                                         ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
-; -1.755 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.422      ;
-; -1.749 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.416      ;
-; -1.747 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.414      ;
-; -1.705 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.372      ;
-; -1.613 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.280      ;
-; -1.536 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.203      ;
-; -1.520 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.187      ;
-; -1.519 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.186      ;
-; -1.511 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.178      ;
-; -1.506 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.173      ;
-; -1.472 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.139      ;
-; -1.297 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.964      ;
-; -1.294 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.961      ;
-; -1.284 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.951      ;
-; -1.261 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.928      ;
-; -1.252 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.919      ;
-; -1.250 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.917      ;
-; -1.241 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.908      ;
+; -2.185 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.443     ; 2.409      ;
+; -2.183 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.443     ; 2.407      ;
+; -2.174 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.443     ; 2.398      ;
+; -1.986 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.443     ; 2.210      ;
+; -1.979 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.443     ; 2.203      ;
+; -1.977 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.443     ; 2.201      ;
+; -1.742 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.409      ;
+; -1.740 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.407      ;
+; -1.731 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.398      ;
+; -1.703 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.443     ; 1.927      ;
+; -1.697 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.443     ; 1.921      ;
+; -1.692 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.443     ; 1.916      ;
+; -1.691 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.358      ;
+; -1.600 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.267      ;
+; -1.543 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.210      ;
+; -1.536 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.203      ;
+; -1.534 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.201      ;
+; -1.503 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.170      ;
+; -1.496 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.163      ;
+; -1.492 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 2.159      ;
+; -1.260 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.927      ;
+; -1.254 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.921      ;
+; -1.249 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.916      ;
+; -1.241 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.908      ;
+; -1.240 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.907      ;
+; -1.232 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.899      ;
+; -1.225 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.892      ;
 ; -0.632 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 1.299      ;
-; 4.026  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 6.045      ; 2.562      ;
-; 4.034  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 6.045      ; 2.554      ;
-; 4.038  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 6.045      ; 2.550      ;
-; 4.526  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 6.045      ; 2.562      ;
-; 4.534  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 6.045      ; 2.554      ;
-; 4.538  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 6.045      ; 2.550      ;
+; 4.996  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 8.074      ; 3.621      ;
+; 5.001  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 8.074      ; 3.616      ;
+; 5.004  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 8.074      ; 3.613      ;
+; 5.496  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 8.074      ; 3.621      ;
+; 5.501  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 8.074      ; 3.616      ;
+; 5.504  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 8.074      ; 3.613      ;
 +--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Setup: 'clk'                                                                                                                                                       ;
-+--------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack  ; From Node                                ; To Node                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+--------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
-; -1.505 ; contador_2bit_asc:cont_dig_7seg|count[0] ; contador_2bit_asc:cont_dig_7seg|count[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 2.172      ;
-; -1.497 ; contador_2bit_asc:cont_dig_7seg|count[0] ; contador_2bit_asc:cont_dig_7seg|count[0] ; clk          ; clk         ; 1.000        ; 0.000      ; 2.164      ;
-; -1.249 ; contador_2bit_asc:cont_dig_7seg|count[1] ; contador_2bit_asc:cont_dig_7seg|count[1] ; clk          ; clk         ; 1.000        ; 0.000      ; 1.916      ;
-+--------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'CH2'                                                                                                                                                                                                           ;
++--------+--------------------------------------------------+--------------------------------------------------+--------------------------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                        ; To Node                                          ; Launch Clock                                     ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------------------+--------------------------------------------------+--------------------------------------------------+-------------+--------------+------------+------------+
+; -1.916 ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; CH2                                              ; CH2         ; 1.000        ; 0.000      ; 2.583      ;
+; -1.699 ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; CH2                                              ; CH2         ; 1.000        ; 0.000      ; 2.366      ;
+; -1.564 ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; CH2                                              ; CH2         ; 1.000        ; 0.000      ; 2.231      ;
+; -1.551 ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; CH2                                              ; CH2         ; 1.000        ; 0.000      ; 2.218      ;
+; -1.543 ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; CH2                                              ; CH2         ; 1.000        ; 0.000      ; 2.210      ;
+; -1.351 ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; CH2                                              ; CH2         ; 1.000        ; 0.000      ; 2.018      ;
+; -1.350 ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; CH2                                              ; CH2         ; 1.000        ; 0.000      ; 2.017      ;
+; -1.237 ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; CH2                                              ; CH2         ; 1.000        ; 0.000      ; 1.904      ;
+; 3.212  ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 0.500        ; 6.122      ; 3.453      ;
+; 3.712  ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 1.000        ; 6.122      ; 3.453      ;
+; 4.023  ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 0.500        ; 6.122      ; 2.642      ;
+; 4.025  ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 0.500        ; 6.122      ; 2.640      ;
+; 4.523  ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 1.000        ; 6.122      ; 2.642      ;
+; 4.525  ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 1.000        ; 6.122      ; 2.640      ;
+; 4.604  ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 0.500        ; 6.122      ; 2.061      ;
+; 5.104  ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 1.000        ; 6.122      ; 2.061      ;
++--------+--------------------------------------------------+--------------------------------------------------+--------------------------------------------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'CH0'                                                                                                                                                                                                                    ;
++--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                           ; To Node                                             ; Launch Clock                                        ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-------------+--------------+------------+------------+
+; -1.742 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; CH0         ; 1.000        ; 0.000      ; 2.409      ;
+; -1.740 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; CH0         ; 1.000        ; 0.000      ; 2.407      ;
+; -1.731 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; CH0         ; 1.000        ; 0.000      ; 2.398      ;
+; -1.543 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; CH0         ; 1.000        ; 0.000      ; 2.210      ;
+; -1.536 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; CH0         ; 1.000        ; 0.000      ; 2.203      ;
+; -1.534 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; CH0         ; 1.000        ; 0.000      ; 2.201      ;
+; -1.299 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 0.443      ; 2.409      ;
+; -1.297 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 0.443      ; 2.407      ;
+; -1.288 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 0.443      ; 2.398      ;
+; -1.260 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; CH0         ; 1.000        ; 0.000      ; 1.927      ;
+; -1.254 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; CH0         ; 1.000        ; 0.000      ; 1.921      ;
+; -1.249 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; CH0         ; 1.000        ; 0.000      ; 1.916      ;
+; -1.100 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 0.443      ; 2.210      ;
+; -1.093 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 0.443      ; 2.203      ;
+; -1.091 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 0.443      ; 2.201      ;
+; -0.817 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 0.443      ; 1.927      ;
+; -0.811 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 0.443      ; 1.921      ;
+; -0.806 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 0.443      ; 1.916      ;
+; 5.439  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.500        ; 8.517      ; 3.621      ;
+; 5.444  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.500        ; 8.517      ; 3.616      ;
+; 5.447  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.500        ; 8.517      ; 3.613      ;
+; 5.939  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 8.517      ; 3.621      ;
+; 5.944  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 8.517      ; 3.616      ;
+; 5.947  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 8.517      ; 3.613      ;
+; 7.179  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.500        ; 8.517      ; 1.881      ;
+; 7.679  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 1.000        ; 8.517      ; 1.881      ;
++--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'div_clock:divisor|count[13]'                                                                                                                                                              ;
++--------+------------------------------------------+------------------------------------------+-----------------------------+-----------------------------+--------------+------------+------------+
+; Slack  ; From Node                                ; To Node                                  ; Launch Clock                ; Latch Clock                 ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------------------------+------------------------------------------+-----------------------------+-----------------------------+--------------+------------+------------+
+; -1.482 ; contador_2bit_asc:cont_dig_7seg|count[1] ; contador_2bit_asc:cont_dig_7seg|count[1] ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; 1.000        ; 0.000      ; 2.149      ;
+; -1.224 ; contador_2bit_asc:cont_dig_7seg|count[0] ; contador_2bit_asc:cont_dig_7seg|count[1] ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; 1.000        ; 0.000      ; 1.891      ;
+; -1.223 ; contador_2bit_asc:cont_dig_7seg|count[0] ; contador_2bit_asc:cont_dig_7seg|count[0] ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; 1.000        ; 0.000      ; 1.890      ;
++--------+------------------------------------------+------------------------------------------+-----------------------------+-----------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'CH0'                                                                                                                                                                                                                     ;
++--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                           ; To Node                                             ; Launch Clock                                        ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-------------+--------------+------------+------------+
+; -7.233 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 8.517      ; 1.881      ;
+; -6.733 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; -0.500       ; 8.517      ; 1.881      ;
+; -5.501 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 8.517      ; 3.613      ;
+; -5.498 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 8.517      ; 3.616      ;
+; -5.493 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 8.517      ; 3.621      ;
+; -5.001 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; -0.500       ; 8.517      ; 3.613      ;
+; -4.998 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; -0.500       ; 8.517      ; 3.616      ;
+; -4.993 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; -0.500       ; 8.517      ; 3.621      ;
+; 1.252  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 0.443      ; 1.916      ;
+; 1.257  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 0.443      ; 1.921      ;
+; 1.263  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 0.443      ; 1.927      ;
+; 1.537  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 0.443      ; 2.201      ;
+; 1.539  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 0.443      ; 2.203      ;
+; 1.546  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 0.443      ; 2.210      ;
+; 1.695  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; CH0         ; 0.000        ; 0.000      ; 1.916      ;
+; 1.700  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; CH0         ; 0.000        ; 0.000      ; 1.921      ;
+; 1.706  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; CH0         ; 0.000        ; 0.000      ; 1.927      ;
+; 1.734  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 0.443      ; 2.398      ;
+; 1.743  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 0.443      ; 2.407      ;
+; 1.745  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0         ; 0.000        ; 0.443      ; 2.409      ;
+; 1.980  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; CH0         ; 0.000        ; 0.000      ; 2.201      ;
+; 1.982  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; CH0         ; 0.000        ; 0.000      ; 2.203      ;
+; 1.989  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; CH0         ; 0.000        ; 0.000      ; 2.210      ;
+; 2.177  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; CH0         ; 0.000        ; 0.000      ; 2.398      ;
+; 2.186  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; CH0         ; 0.000        ; 0.000      ; 2.407      ;
+; 2.188  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; CH0         ; 0.000        ; 0.000      ; 2.409      ;
++--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-------------+--------------+------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -206,43 +464,204 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
 ; Slack  ; From Node                                           ; To Node                                             ; Launch Clock                                        ; Latch Clock                                         ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
-; -4.092 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 6.045      ; 2.550      ;
-; -4.088 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 6.045      ; 2.554      ;
-; -4.080 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 6.045      ; 2.562      ;
-; -3.592 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 6.045      ; 2.550      ;
-; -3.588 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 6.045      ; 2.554      ;
-; -3.580 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 6.045      ; 2.562      ;
+; -5.058 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 8.074      ; 3.613      ;
+; -5.055 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 8.074      ; 3.616      ;
+; -5.050 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 8.074      ; 3.621      ;
+; -4.558 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 8.074      ; 3.613      ;
+; -4.555 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 8.074      ; 3.616      ;
+; -4.550 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 8.074      ; 3.621      ;
 ; 1.078  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.299      ;
-; 1.687  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.908      ;
-; 1.696  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.917      ;
-; 1.698  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.919      ;
-; 1.707  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.928      ;
-; 1.730  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.951      ;
-; 1.740  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.961      ;
-; 1.743  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.964      ;
-; 1.918  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.139      ;
-; 1.952  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.173      ;
-; 1.957  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.178      ;
-; 1.965  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.186      ;
-; 1.966  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.187      ;
-; 1.982  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.203      ;
-; 2.059  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.280      ;
-; 2.151  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.372      ;
-; 2.193  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.414      ;
-; 2.195  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.416      ;
-; 2.201  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.422      ;
+; 1.671  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.892      ;
+; 1.678  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.899      ;
+; 1.686  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.907      ;
+; 1.687  ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.908      ;
+; 1.695  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.916      ;
+; 1.700  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.921      ;
+; 1.706  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 1.927      ;
+; 1.938  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.159      ;
+; 1.942  ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.163      ;
+; 1.949  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.170      ;
+; 1.980  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.201      ;
+; 1.982  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.203      ;
+; 1.989  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.210      ;
+; 2.046  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.267      ;
+; 2.137  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.358      ;
+; 2.138  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.443     ; 1.916      ;
+; 2.143  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.443     ; 1.921      ;
+; 2.149  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.443     ; 1.927      ;
+; 2.177  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.398      ;
+; 2.186  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.407      ;
+; 2.188  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 2.409      ;
+; 2.423  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.443     ; 2.201      ;
+; 2.425  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.443     ; 2.203      ;
+; 2.432  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.443     ; 2.210      ;
+; 2.620  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.443     ; 2.398      ;
+; 2.629  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.443     ; 2.407      ;
+; 2.631  ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.443     ; 2.409      ;
 +--------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Hold: 'clk'                                                                                                                                                       ;
-+-------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                                ; To Node                                  ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
-; 1.695 ; contador_2bit_asc:cont_dig_7seg|count[1] ; contador_2bit_asc:cont_dig_7seg|count[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.916      ;
-; 1.943 ; contador_2bit_asc:cont_dig_7seg|count[0] ; contador_2bit_asc:cont_dig_7seg|count[0] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.164      ;
-; 1.951 ; contador_2bit_asc:cont_dig_7seg|count[0] ; contador_2bit_asc:cont_dig_7seg|count[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.172      ;
-+-------+------------------------------------------+------------------------------------------+--------------+-------------+--------------+------------+------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'CH2'                                                                                                                                                                                                            ;
++--------+--------------------------------------------------+--------------------------------------------------+--------------------------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                        ; To Node                                          ; Launch Clock                                     ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------------------+--------------------------------------------------+--------------------------------------------------+-------------+--------------+------------+------------+
+; -4.658 ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 0.000        ; 6.122      ; 2.061      ;
+; -4.158 ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; -0.500       ; 6.122      ; 2.061      ;
+; -4.079 ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 0.000        ; 6.122      ; 2.640      ;
+; -4.077 ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 0.000        ; 6.122      ; 2.642      ;
+; -3.579 ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; -0.500       ; 6.122      ; 2.640      ;
+; -3.577 ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; -0.500       ; 6.122      ; 2.642      ;
+; -3.266 ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; 0.000        ; 6.122      ; 3.453      ;
+; -2.766 ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; CH2         ; -0.500       ; 6.122      ; 3.453      ;
+; 1.683  ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; CH2                                              ; CH2         ; 0.000        ; 0.000      ; 1.904      ;
+; 1.796  ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; CH2                                              ; CH2         ; 0.000        ; 0.000      ; 2.017      ;
+; 1.797  ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; CH2                                              ; CH2         ; 0.000        ; 0.000      ; 2.018      ;
+; 1.989  ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; CH2                                              ; CH2         ; 0.000        ; 0.000      ; 2.210      ;
+; 1.997  ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; CH2                                              ; CH2         ; 0.000        ; 0.000      ; 2.218      ;
+; 2.010  ; contador_4bit_asc_lim9:cont_unidade_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; CH2                                              ; CH2         ; 0.000        ; 0.000      ; 2.231      ;
+; 2.145  ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[3] ; CH2                                              ; CH2         ; 0.000        ; 0.000      ; 2.366      ;
+; 2.362  ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[1] ; CH2                                              ; CH2         ; 0.000        ; 0.000      ; 2.583      ;
++--------+--------------------------------------------------+--------------------------------------------------+--------------------------------------------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                             ;
++--------+-----------------------------+-----------------------------+-----------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                   ; To Node                     ; Launch Clock                ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------+-----------------------------+-----------------------------+-------------+--------------+------------+------------+
+; -1.478 ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; clk         ; 0.000        ; 3.348      ; 2.467      ;
+; -0.978 ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; clk         ; -0.500       ; 3.348      ; 2.467      ;
+; 2.107  ; div_clock:divisor|count[6]  ; div_clock:divisor|count[6]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.328      ;
+; 2.108  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[4]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.329      ;
+; 2.117  ; div_clock:divisor|count[9]  ; div_clock:divisor|count[9]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117  ; div_clock:divisor|count[8]  ; div_clock:divisor|count[8]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.124  ; div_clock:divisor|count[7]  ; div_clock:divisor|count[7]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.345      ;
+; 2.221  ; div_clock:divisor|count[5]  ; div_clock:divisor|count[5]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[0]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.230  ; div_clock:divisor|count[10] ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230  ; div_clock:divisor|count[2]  ; div_clock:divisor|count[2]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.231  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[3]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[1]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.238  ; div_clock:divisor|count[12] ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.459      ;
+; 2.240  ; div_clock:divisor|count[11] ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 2.461      ;
+; 2.940  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[5]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.161      ;
+; 2.949  ; div_clock:divisor|count[9]  ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949  ; div_clock:divisor|count[8]  ; div_clock:divisor|count[9]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.956  ; div_clock:divisor|count[7]  ; div_clock:divisor|count[8]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.177      ;
+; 3.051  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[6]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.272      ;
+; 3.060  ; div_clock:divisor|count[9]  ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.281      ;
+; 3.060  ; div_clock:divisor|count[8]  ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.281      ;
+; 3.067  ; div_clock:divisor|count[7]  ; div_clock:divisor|count[9]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.288      ;
+; 3.161  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[1]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.161  ; div_clock:divisor|count[5]  ; div_clock:divisor|count[6]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.382      ;
+; 3.170  ; div_clock:divisor|count[2]  ; div_clock:divisor|count[3]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.170  ; div_clock:divisor|count[10] ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.171  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[4]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.392      ;
+; 3.171  ; div_clock:divisor|count[8]  ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.392      ;
+; 3.178  ; div_clock:divisor|count[12] ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.399      ;
+; 3.178  ; div_clock:divisor|count[7]  ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.399      ;
+; 3.281  ; div_clock:divisor|count[2]  ; div_clock:divisor|count[4]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.502      ;
+; 3.282  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[5]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.503      ;
+; 3.289  ; div_clock:divisor|count[7]  ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.510      ;
+; 3.392  ; div_clock:divisor|count[2]  ; div_clock:divisor|count[5]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.613      ;
+; 3.393  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[6]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.614      ;
+; 3.492  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[6]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[5]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[4]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[3]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.492  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[2]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.501  ; div_clock:divisor|count[11] ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.722      ;
+; 3.501  ; div_clock:divisor|count[11] ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.722      ;
+; 3.503  ; div_clock:divisor|count[2]  ; div_clock:divisor|count[6]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.724      ;
+; 3.529  ; div_clock:divisor|count[9]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.750      ;
+; 3.529  ; div_clock:divisor|count[9]  ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.750      ;
+; 3.630  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[6]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.630  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[5]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.630  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[4]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.630  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[3]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.630  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[2]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.851      ;
+; 3.639  ; div_clock:divisor|count[10] ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.860      ;
+; 3.639  ; div_clock:divisor|count[10] ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.860      ;
+; 3.640  ; div_clock:divisor|count[8]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.861      ;
+; 3.640  ; div_clock:divisor|count[8]  ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.861      ;
+; 3.758  ; div_clock:divisor|count[6]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.979      ;
+; 3.758  ; div_clock:divisor|count[6]  ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.979      ;
+; 3.758  ; div_clock:divisor|count[7]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.979      ;
+; 3.758  ; div_clock:divisor|count[7]  ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.979      ;
+; 3.771  ; div_clock:divisor|count[6]  ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.992      ;
+; 3.771  ; div_clock:divisor|count[6]  ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.992      ;
+; 3.771  ; div_clock:divisor|count[6]  ; div_clock:divisor|count[9]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.992      ;
+; 3.771  ; div_clock:divisor|count[6]  ; div_clock:divisor|count[8]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.992      ;
+; 3.771  ; div_clock:divisor|count[6]  ; div_clock:divisor|count[7]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 3.992      ;
+; 3.901  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.122      ;
+; 3.901  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.122      ;
+; 3.914  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.135      ;
+; 3.914  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.135      ;
+; 3.914  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[9]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.135      ;
+; 3.914  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[8]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.135      ;
+; 3.914  ; div_clock:divisor|count[4]  ; div_clock:divisor|count[7]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.135      ;
+; 4.011  ; div_clock:divisor|count[5]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.232      ;
+; 4.011  ; div_clock:divisor|count[5]  ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.232      ;
+; 4.024  ; div_clock:divisor|count[5]  ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.245      ;
+; 4.024  ; div_clock:divisor|count[5]  ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.245      ;
+; 4.024  ; div_clock:divisor|count[5]  ; div_clock:divisor|count[9]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.245      ;
+; 4.024  ; div_clock:divisor|count[5]  ; div_clock:divisor|count[8]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.245      ;
+; 4.024  ; div_clock:divisor|count[5]  ; div_clock:divisor|count[7]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.245      ;
+; 4.087  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.308      ;
+; 4.087  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.308      ;
+; 4.100  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.321      ;
+; 4.100  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.321      ;
+; 4.100  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[9]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.321      ;
+; 4.100  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[8]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.321      ;
+; 4.100  ; div_clock:divisor|count[1]  ; div_clock:divisor|count[7]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.321      ;
+; 4.225  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.446      ;
+; 4.225  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.446      ;
+; 4.238  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.459      ;
+; 4.238  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.459      ;
+; 4.238  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[9]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.459      ;
+; 4.238  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[8]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.459      ;
+; 4.238  ; div_clock:divisor|count[0]  ; div_clock:divisor|count[7]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.459      ;
+; 4.243  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.464      ;
+; 4.243  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[12] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.464      ;
+; 4.256  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[11] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.477      ;
+; 4.256  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[10] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.477      ;
+; 4.256  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[9]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.477      ;
+; 4.256  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[8]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.477      ;
+; 4.256  ; div_clock:divisor|count[3]  ; div_clock:divisor|count[7]  ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.477      ;
+; 4.353  ; div_clock:divisor|count[2]  ; div_clock:divisor|count[13] ; clk                         ; clk         ; 0.000        ; 0.000      ; 4.574      ;
++--------+-----------------------------+-----------------------------+-----------------------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'div_clock:divisor|count[13]'                                                                                                                                                              ;
++-------+------------------------------------------+------------------------------------------+-----------------------------+-----------------------------+--------------+------------+------------+
+; Slack ; From Node                                ; To Node                                  ; Launch Clock                ; Latch Clock                 ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------+------------------------------------------+-----------------------------+-----------------------------+--------------+------------+------------+
+; 1.669 ; contador_2bit_asc:cont_dig_7seg|count[0] ; contador_2bit_asc:cont_dig_7seg|count[0] ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; 0.000        ; 0.000      ; 1.890      ;
+; 1.670 ; contador_2bit_asc:cont_dig_7seg|count[0] ; contador_2bit_asc:cont_dig_7seg|count[1] ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; 0.000        ; 0.000      ; 1.891      ;
+; 1.928 ; contador_2bit_asc:cont_dig_7seg|count[1] ; contador_2bit_asc:cont_dig_7seg|count[1] ; div_clock:divisor|count[13] ; div_clock:divisor|count[13] ; 0.000        ; 0.000      ; 2.149      ;
++-------+------------------------------------------+------------------------------------------+-----------------------------+-----------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'contador_4bit_asc_lim9:cont_unidade_gar|count[0]'                                                                                                                                                                                                 ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------------------------------------------+--------------------------------------------------+--------------+------------+------------+
+; Slack ; From Node                                       ; To Node                                         ; Launch Clock                                     ; Latch Clock                                      ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------------------------------------------+--------------------------------------------------+--------------+------------+------------+
+; 1.755 ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 1.976      ;
+; 1.758 ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 1.979      ;
+; 1.765 ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 1.986      ;
+; 1.920 ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 2.141      ;
+; 1.942 ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 2.163      ;
+; 1.957 ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 2.178      ;
+; 2.128 ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 2.349      ;
+; 2.144 ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 2.365      ;
+; 2.167 ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 2.388      ;
+; 2.241 ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_dezena_gar|count[1] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 2.462      ;
+; 2.343 ; contador_4bit_asc_lim9:cont_dezena_gar|count[0] ; contador_4bit_asc_lim9:cont_dezena_gar|count[2] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 2.564      ;
+; 2.700 ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_dezena_gar|count[3] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; contador_4bit_asc_lim9:cont_unidade_gar|count[0] ; 0.000        ; 0.000      ; 2.921      ;
++-------+-------------------------------------------------+-------------------------------------------------+--------------------------------------------------+--------------------------------------------------+--------------+------------+------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -250,26 +669,32 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------+-----------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
 ; Slack  ; From Node                                           ; To Node                                            ; Launch Clock                                        ; Latch Clock                                         ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-----------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
-; -8.126 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.494     ; 8.299      ;
-; -8.126 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.494     ; 8.299      ;
-; -7.595 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.494     ; 7.768      ;
-; -7.595 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.494     ; 7.768      ;
-; -7.566 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 8.233      ;
-; -7.566 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 8.233      ;
-; -7.233 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 7.900      ;
-; -7.233 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 7.900      ;
-; -6.631 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.494     ; 6.804      ;
-; -6.631 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.494     ; 6.804      ;
-; -6.616 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.018     ; 7.265      ;
-; -6.616 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.018     ; 7.265      ;
-; -6.441 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.018     ; 7.090      ;
-; -6.441 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.018     ; 7.090      ;
-; -6.276 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.018     ; 6.925      ;
-; -6.276 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -0.018     ; 6.925      ;
-; -0.882 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 5.551      ; 6.976      ;
-; -0.882 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 5.551      ; 6.976      ;
-; -0.382 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 5.551      ; 6.976      ;
-; -0.382 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 5.551      ; 6.976      ;
+; -9.236 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.843     ; 5.060      ;
+; -9.236 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.843     ; 5.060      ;
+; -8.878 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.843     ; 4.702      ;
+; -8.878 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.843     ; 4.702      ;
+; -8.793 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.400     ; 5.060      ;
+; -8.793 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.400     ; 5.060      ;
+; -8.752 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.843     ; 4.576      ;
+; -8.752 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.843     ; 4.576      ;
+; -8.435 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.400     ; 4.702      ;
+; -8.435 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.400     ; 4.702      ;
+; -8.309 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.400     ; 4.576      ;
+; -8.309 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -4.400     ; 4.576      ;
+; -8.213 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -1.352     ; 7.528      ;
+; -8.213 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -1.352     ; 7.528      ;
+; -7.407 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -1.352     ; 6.722      ;
+; -7.407 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -1.352     ; 6.722      ;
+; -7.102 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 7.769      ;
+; -7.102 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 7.769      ;
+; -7.057 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -1.352     ; 6.372      ;
+; -7.057 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; -1.352     ; 6.372      ;
+; -6.714 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 7.381      ;
+; -6.714 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 0.000      ; 7.381      ;
+; -1.794 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 3.674      ; 6.011      ;
+; -1.794 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.500        ; 3.674      ; 6.011      ;
+; -1.294 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 3.674      ; 6.011      ;
+; -1.294 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 1.000        ; 3.674      ; 6.011      ;
 +--------+-----------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
 
 
@@ -278,26 +703,32 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------+-----------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
 ; Slack ; From Node                                           ; To Node                                            ; Launch Clock                                        ; Latch Clock                                         ; Relationship ; Clock Skew ; Data Delay ;
 +-------+-----------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
-; 0.828 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 5.551      ; 6.976      ;
-; 0.828 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 5.551      ; 6.976      ;
-; 1.328 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 5.551      ; 6.976      ;
-; 1.328 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 5.551      ; 6.976      ;
-; 6.722 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.018     ; 6.925      ;
-; 6.722 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.018     ; 6.925      ;
-; 6.887 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.018     ; 7.090      ;
-; 6.887 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.018     ; 7.090      ;
-; 7.062 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.018     ; 7.265      ;
-; 7.062 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.018     ; 7.265      ;
-; 7.077 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.494     ; 6.804      ;
-; 7.077 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.494     ; 6.804      ;
-; 7.679 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 7.900      ;
-; 7.679 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 7.900      ;
-; 8.012 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 8.233      ;
-; 8.012 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 8.233      ;
-; 8.041 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.494     ; 7.768      ;
-; 8.041 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.494     ; 7.768      ;
-; 8.572 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.494     ; 8.299      ;
-; 8.572 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -0.494     ; 8.299      ;
+; 1.740 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 3.674      ; 6.011      ;
+; 1.740 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 3.674      ; 6.011      ;
+; 2.240 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 3.674      ; 6.011      ;
+; 2.240 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; -0.500       ; 3.674      ; 6.011      ;
+; 7.160 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 7.381      ;
+; 7.160 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 7.381      ;
+; 7.503 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -1.352     ; 6.372      ;
+; 7.503 ; contador_3bit_padrao:recargas_disponiveis|count[2]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -1.352     ; 6.372      ;
+; 7.548 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 7.769      ;
+; 7.548 ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; 0.000      ; 7.769      ;
+; 7.853 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -1.352     ; 6.722      ;
+; 7.853 ; contador_3bit_padrao:recargas_disponiveis|count[1]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -1.352     ; 6.722      ;
+; 8.659 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -1.352     ; 7.528      ;
+; 8.659 ; contador_3bit_padrao:recargas_disponiveis|count[0]  ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -1.352     ; 7.528      ;
+; 8.755 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.400     ; 4.576      ;
+; 8.755 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.400     ; 4.576      ;
+; 8.881 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.400     ; 4.702      ;
+; 8.881 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.400     ; 4.702      ;
+; 9.198 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.843     ; 4.576      ;
+; 9.198 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[1] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.843     ; 4.576      ;
+; 9.239 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.400     ; 5.060      ;
+; 9.239 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.400     ; 5.060      ;
+; 9.324 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.843     ; 4.702      ;
+; 9.324 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[3] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.843     ; 4.702      ;
+; 9.682 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[0] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.843     ; 5.060      ;
+; 9.682 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[2] ; contador_2bit_desc_lim2:cont_dezena_rolha|count[1] ; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 0.000        ; -4.843     ; 5.060      ;
 +-------+-----------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+-----------------------------------------------------+--------------+------------+------------+
 
 
@@ -306,8 +737,16 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                          ; To Clock                                            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
-; clk                                                 ; clk                                                 ; 3        ; 0        ; 0        ; 0        ;
+; CH0                                                 ; CH0                                                 ; 9        ; 0        ; 0        ; 0        ;
+; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0                                                 ; 13       ; 4        ; 0        ; 0        ;
+; CH2                                                 ; CH2                                                 ; 8        ; 0        ; 0        ; 0        ;
+; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; CH2                                                 ; 4        ; 4        ; 0        ; 0        ;
+; clk                                                 ; clk                                                 ; 174      ; 0        ; 0        ; 0        ;
+; div_clock:divisor|count[13]                         ; clk                                                 ; 1        ; 1        ; 0        ; 0        ;
+; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; 12       ; 0        ; 0        ; 0        ;
+; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 9        ; 0        ; 0        ; 0        ;
 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 22       ; 3        ; 0        ; 0        ;
+; div_clock:divisor|count[13]                         ; div_clock:divisor|count[13]                         ; 3        ; 0        ; 0        ; 0        ;
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -317,8 +756,16 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                          ; To Clock                                            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
-; clk                                                 ; clk                                                 ; 3        ; 0        ; 0        ; 0        ;
+; CH0                                                 ; CH0                                                 ; 9        ; 0        ; 0        ; 0        ;
+; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; CH0                                                 ; 13       ; 4        ; 0        ; 0        ;
+; CH2                                                 ; CH2                                                 ; 8        ; 0        ; 0        ; 0        ;
+; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; CH2                                                 ; 4        ; 4        ; 0        ; 0        ;
+; clk                                                 ; clk                                                 ; 174      ; 0        ; 0        ; 0        ;
+; div_clock:divisor|count[13]                         ; clk                                                 ; 1        ; 1        ; 0        ; 0        ;
+; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; 12       ; 0        ; 0        ; 0        ;
+; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 9        ; 0        ; 0        ; 0        ;
 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 22       ; 3        ; 0        ; 0        ;
+; div_clock:divisor|count[13]                         ; div_clock:divisor|count[13]                         ; 3        ; 0        ; 0        ; 0        ;
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -328,6 +775,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                          ; To Clock                                            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
+; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 6        ; 0        ; 0        ; 0        ;
 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 18       ; 2        ; 0        ; 0        ;
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
@@ -338,6 +786,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
 ; From Clock                                          ; To Clock                                            ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
+; CH0                                                 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 6        ; 0        ; 0        ; 0        ;
 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; 18       ; 2        ; 0        ; 0        ;
 +-----------------------------------------------------+-----------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
@@ -363,9 +812,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 1     ; 1    ;
-; Unconstrained Input Port Paths  ; 7     ; 7    ;
-; Unconstrained Output Ports      ; 10    ; 10   ;
-; Unconstrained Output Port Paths ; 53    ; 53   ;
+; Unconstrained Input Port Paths  ; 15    ; 15   ;
+; Unconstrained Output Ports      ; 25    ; 25   ;
+; Unconstrained Output Port Paths ; 130   ; 130  ;
 +---------------------------------+-------+------+
 
 
@@ -374,8 +823,12 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +-----------------------------------------------------+-----------------------------------------------------+------+-------------+
 ; Target                                              ; Clock                                               ; Type ; Status      ;
 +-----------------------------------------------------+-----------------------------------------------------+------+-------------+
+; CH0                                                 ; CH0                                                 ; Base ; Constrained ;
+; CH2                                                 ; CH2                                                 ; Base ; Constrained ;
 ; clk                                                 ; clk                                                 ; Base ; Constrained ;
+; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; contador_4bit_asc_lim9:cont_unidade_gar|count[0]    ; Base ; Constrained ;
 ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; contador_4bit_desc_lim5:cont_unidade_rolha|count[0] ; Base ; Constrained ;
+; div_clock:divisor|count[13]                         ; div_clock:divisor|count[13]                         ; Base ; Constrained ;
 +-----------------------------------------------------+-----------------------------------------------------+------+-------------+
 
 
@@ -388,22 +841,37 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Unconstrained Output Ports                                                                          ;
-+-------------+---------------------------------------------------------------------------------------+
-; Output Port ; Comment                                                                               ;
-+-------------+---------------------------------------------------------------------------------------+
-; OUT[1]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[2]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[3]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[4]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[5]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[6]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dig0        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dig1        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dig2        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dig3        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+-------------+---------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                ;
++-------------------+---------------------------------------------------------------------------------------+
+; Output Port       ; Comment                                                                               ;
++-------------------+---------------------------------------------------------------------------------------+
+; OUT[0]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[1]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[2]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[3]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[4]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[5]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[6]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dig0              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dig1              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dig2              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dig3              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_gar[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_gar[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_gar[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_gar[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_rol[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_rol[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_gar[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_gar[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_gar[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_gar[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_rol[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_rol[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_rol[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_rol[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------------+---------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -415,22 +883,37 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Unconstrained Output Ports                                                                          ;
-+-------------+---------------------------------------------------------------------------------------+
-; Output Port ; Comment                                                                               ;
-+-------------+---------------------------------------------------------------------------------------+
-; OUT[1]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[2]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[3]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[4]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[5]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; OUT[6]      ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dig0        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dig1        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dig2        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dig3        ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+-------------+---------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                ;
++-------------------+---------------------------------------------------------------------------------------+
+; Output Port       ; Comment                                                                               ;
++-------------------+---------------------------------------------------------------------------------------+
+; OUT[0]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[1]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[2]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[3]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[4]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[5]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; OUT[6]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dig0              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dig1              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dig2              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dig3              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_gar[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_gar[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_gar[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_gar[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_rol[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_deze_rol[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_gar[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_gar[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_gar[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_gar[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_rol[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_rol[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_rol[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; teste_uni_rol[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------------+---------------------------------------------------------------------------------------+
 
 
 +--------------------------+
@@ -439,7 +922,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Feb 15 23:09:06 2024
+    Info: Processing started: Fri Feb 16 22:49:28 2024
 Info: Command: quartus_sta PBL3 -c PBL3
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -451,41 +934,57 @@ Info (334004): Delay annotation completed successfully
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'PBL3.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CH2 CH2
+    Info (332105): create_clock -period 1.000 -name contador_4bit_asc_lim9:cont_unidade_gar|count[0] contador_4bit_asc_lim9:cont_unidade_gar|count[0]
+    Info (332105): create_clock -period 1.000 -name CH0 CH0
     Info (332105): create_clock -period 1.000 -name contador_4bit_desc_lim5:cont_unidade_rolha|count[0] contador_4bit_desc_lim5:cont_unidade_rolha|count[0]
+    Info (332105): create_clock -period 1.000 -name div_clock:divisor|count[13] div_clock:divisor|count[13]
     Info (332105): create_clock -period 1.000 -name clk clk
 Warning (332191): Clock target contador_4bit_desc_lim5:cont_unidade_rolha|count[0] of clock contador_4bit_desc_lim5:cont_unidade_rolha|count[0] is fed by another target of the same clock.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.755
+Info (332146): Worst-case setup slack is -3.973
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.755             -12.811 contador_4bit_desc_lim5:cont_unidade_rolha|count[0] 
-    Info (332119):    -1.505              -3.002 clk 
-Info (332146): Worst-case hold slack is -4.092
+    Info (332119):    -3.973             -48.281 clk 
+    Info (332119):    -2.254              -7.255 contador_4bit_asc_lim9:cont_unidade_gar|count[0] 
+    Info (332119):    -2.185             -14.060 contador_4bit_desc_lim5:cont_unidade_rolha|count[0] 
+    Info (332119):    -1.916              -5.158 CH2 
+    Info (332119):    -1.742              -5.213 CH0 
+    Info (332119):    -1.482              -2.705 div_clock:divisor|count[13] 
+Info (332146): Worst-case hold slack is -7.233
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.092             -12.260 contador_4bit_desc_lim5:cont_unidade_rolha|count[0] 
-    Info (332119):     1.695               0.000 clk 
-Info (332146): Worst-case recovery slack is -8.126
+    Info (332119):    -7.233             -23.725 CH0 
+    Info (332119):    -5.058             -15.163 contador_4bit_desc_lim5:cont_unidade_rolha|count[0] 
+    Info (332119):    -4.658             -16.080 CH2 
+    Info (332119):    -1.478              -1.478 clk 
+    Info (332119):     1.669               0.000 div_clock:divisor|count[13] 
+    Info (332119):     1.755               0.000 contador_4bit_asc_lim9:cont_unidade_gar|count[0] 
+Info (332146): Worst-case recovery slack is -9.236
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -8.126             -16.252 contador_4bit_desc_lim5:cont_unidade_rolha|count[0] 
-Info (332146): Worst-case removal slack is 0.828
+    Info (332119):    -9.236             -18.472 contador_4bit_desc_lim5:cont_unidade_rolha|count[0] 
+Info (332146): Worst-case removal slack is 1.740
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.828               0.000 contador_4bit_desc_lim5:cont_unidade_rolha|count[0] 
+    Info (332119):     1.740               0.000 contador_4bit_desc_lim5:cont_unidade_rolha|count[0] 
 Info (332146): Worst-case minimum pulse width slack is -2.289
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 CH0 
+    Info (332119):    -2.289              -2.289 CH2 
     Info (332119):    -2.289              -2.289 clk 
+    Info (332119):     0.234               0.000 contador_4bit_asc_lim9:cont_unidade_gar|count[0] 
     Info (332119):     0.234               0.000 contador_4bit_desc_lim5:cont_unidade_rolha|count[0] 
+    Info (332119):     0.234               0.000 div_clock:divisor|count[13] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4674 megabytes
-    Info: Processing ended: Thu Feb 15 23:09:07 2024
+    Info: Peak virtual memory: 4676 megabytes
+    Info: Processing ended: Fri Feb 16 22:49:29 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
